@@ -1,15 +1,14 @@
 function load() {
-    var xhr = new XMLHttpRequest();
+    var getRequest = new XMLHttpRequest();
     var requestResult;
 
-    console.log('start');
-    xhr.open('GET', 'http://polls.apiblueprint.org/questions', true);
-    xhr.send();
+    getRequest.open('GET', 'http://polls.apiblueprint.org/questions', true);
+    getRequest.send();
 
-    xhr.onreadystatechange = function() {
-        if (xhr.readyState != 4) return;
-        console.log("hi");
-        requestResult = JSON.parse(xhr.responseText);
+    getRequest.onreadystatechange = function() {
+        if (getRequest.readyState != 4) return;
+        
+        requestResult = JSON.parse(getRequest.responseText);
         console.log(requestResult);
 
         createList(requestResult);
