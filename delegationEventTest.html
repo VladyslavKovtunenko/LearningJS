@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table id="myTable" border="1">
+    <tr>
+        <td>table 1</td>
+        <td>table 2</td>
+        <td>table 3</td>
+    </tr>
+    <tr>
+        <td>table 4</td>
+        <td>table 5</td>
+        <td>table 6</td>
+    </tr>
+    <tr>
+        <td>table 7</td>
+        <td>table 8</td>
+        <td>table 9</td>
+    </tr>
+</table>
+
+<script>
+    var table = document.getElementById("myTable");
+
+    table.onclick = function (event) {
+        console.log(event.target);
+        if(event.target.style.backgroundColor === "red"){
+            event.target.style.backgroundColor = "white";
+        } else {
+            event.target.style.backgroundColor = "red";
+        }
+    }
+</script>
+
+</body>
+</html>

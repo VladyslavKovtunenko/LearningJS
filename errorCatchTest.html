@@ -1,58 +1,53 @@
 <!DOCTYPE HTML>
 <html>
-    <head>
-        <meta charset="utf-8">
-    </head>
+<head>
+    <meta charset="utf-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var age = prompt("your age?");
+    console.log(age);
 
-    <body>
-        <script>
-            var age = prompt("your age?");
-            console.log(age);
-
-            try {
-                var error;
-
-                if (+age >= 18 && +age <= 99){
-                    alert("it`s ok");
-                }
-                else if (+age > 0 && +age < 18){
-                    error = new Error("Young");
-                    throw error;
-                }
-                else if (+age > 99){
-                    error =new Error("Old");
-                    throw error;
-                }
-                else if (+age <= 0){
-                    error = new Error("NotAge");
-                    throw error;
-                }
-                else {
-                    error =new Error();
-                    throw error;
-                }
-            }
-            catch (error){
-                console.log(error.message);
-                switch(error.message) {
-                    case "Young":
-                        alert("You are too young");
-                        break;
-
-                    case "Old":
-                        alert("You are too old");
-                        break;
-
-                    case "NotAge":
-                        alert("It`s not age");
-                        break;
-
-                    default:
-                        alert("Unexpected error");
-                        break;
-                }
-            }
-        </script>
-    </body>
-
+    try {
+        var error;
+        if (+age >= 18 && +age <= 99){
+            alert("it`s ok");
+        }
+        else if (+age > 0 && +age < 18){
+            error = new Error("Young");
+            throw error;
+        }
+        else if (+age > 99){
+            error =new Error("Old");
+            throw error;
+        }
+        else if (+age <= 0){
+            error = new Error("NotAge");
+            throw error;
+        }
+        else {
+            error =new Error();
+            throw error;
+        }
+    }
+    catch (error){
+        console.log(error.message);
+        switch(error.message) {
+            case "Young":
+                alert("You are too young");
+                break;
+            case "Old":
+                alert("You are too old");
+                break;
+            case "NotAge":
+                alert("It`s not age");
+                break;
+            default:
+                alert("Unexpected error");
+                break;
+        }
+    }
+</script>
+</body>
 </html>
