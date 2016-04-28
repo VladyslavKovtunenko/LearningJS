@@ -1,15 +1,19 @@
 function load() {
-    var xhp = new XMLHttpRequest();
+    var xhr = new XMLHttpRequest();
     var requestResult;
 
     console.log('start');
-    xhp.open('GET', 'http://polls.apiblueprint.org/questions', false);
-    xhp.send();
+    xhr.open('GET', 'http://polls.apiblueprint.org/questions', true);
+    xhr.send();
 
-    requestResult = JSON.parse(xhp.responseText);
-    console.log(requestResult);
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState != 4) return;
+        console.log("hi");
+        requestResult = JSON.parse(xhr.responseText);
+        console.log(requestResult);
 
-    createList(requestResult);
+        createList(requestResult);
+    }
 }
 
 function createList(object) {
