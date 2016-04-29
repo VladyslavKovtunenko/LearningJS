@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <script src="getRequest.js"></script>
-    <script src="postRequest.js"></script>
     <script src="postAnswer.js"></script>
 </head>
 <body>
@@ -17,13 +16,12 @@
             <input type="checkbox" id="check4" name="OpenSuse">OpenSuse<Br>
             <input type="checkbox" id="check5" name="Arch">Arch<Br>
             <input type="checkbox" id="check6" name="Other">Other<Br>
-        <p><button onclick="answer()">Answer</button></p>
+            <p><button type="button" onclick="answer()">Answer</button></p>
     </form>
 
     <hr>
-    <button onclick="load()">Load list</button>
+    <button type="button" onclick="load()">Load list</button>
     <ol id='list'>
-
-</ol>
+    </ol>
 </body>
 </html>

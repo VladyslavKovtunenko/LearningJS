@@ -26,7 +26,7 @@ function send(checked) {
     usrPost.send(info);
 
     usrPost.onreadystatechange = function (){
-        if (usrPost.readyState != 4) return;
-        alert('Post request');
+        if (usrPost.readyState != 4) alert('Post request');
+        /*alert('Post request');*/
     };
 }
