@@ -25,13 +25,11 @@ function send(checked) {
     usrPost.setRequestHeader("Content-Type", "application/json");
     usrPost.send(info);
   
-  /*usrPost.onreadystatechange = function (){
-        if (usrPost.readyState != 4) alert('Post request');
-    };*/
+    console.log(usrPost.responseText);
+    createList(usrPost.responseText);
 
-    setTimeout(function () {
-        load();
-    }, 1000);
+    load();
+    load();
 }
 
 function load() {
