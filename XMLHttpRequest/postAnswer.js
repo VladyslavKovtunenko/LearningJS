@@ -12,7 +12,7 @@ function answer() {
 function send(checked) {
     var usrPost = new XMLHttpRequest();
     var data = {
-        question: "What Linux you use?",
+        question: 'What Linux you use?',
         choices: []
     };
 
@@ -27,9 +27,12 @@ function send(checked) {
 
     usrPost.onreadystatechange = function () {
         if (usrPost.readyState == 4){
-            load();
+            if (usrPost.status != 201 && usrPost.status != 200){
+                alert(usrPost.status + ': ' + usrPost.statusText);
+            } else load();
         }
-    }
+    };
+
 }
 
 function load() {
