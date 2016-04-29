@@ -24,12 +24,12 @@ function send(checked) {
     usrPost.open('POST', 'http://polls.apiblueprint.org/questions', true);
     usrPost.setRequestHeader("Content-Type", "application/json");
     usrPost.send(info);
-  
-    console.log(usrPost.responseText);
-    createList(usrPost.responseText);
 
-    load();
-    load();
+    usrPost.onreadystatechange = function () {
+        if (usrPost.readyState == 4){
+            load();
+        }
+    }
 }
 
 function load() {
