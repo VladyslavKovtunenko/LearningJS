@@ -16,6 +16,7 @@ function load() {
 }
 
 function createList(object) {
+    document.getElementById("list").innerHTML = "";
     for (var i = 0; i < object.length; i++){
         var newItem = document.createElement('li');
         var itemString = object[i].question + "<ul><li>" + object[i].url + "</li>" + "<li>" + object[i].published_at + "</li>";

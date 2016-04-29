@@ -1,44 +1,32 @@
-function send() {
-    var usrPost = new XMLHttpRequest();
-    var usrGet = new XMLHttpRequest();
-    var data = {
-        question: undefined,
-        choices: []
-    };
-    var j = 0;
-
-    data.question = document.getElementById("question").value;
-
-    console.log(document.getElementsByTagName("input")[0].value);
-    console.log(document.getElementsByTagName("input")[1].value);
-
-    for (var i = 1; i <= 4; i++){
-        if(document.getElementsByTagName("input")[i].value != ""){
-            data.choices[j] = document.getElementsByTagName("input")[i].value;
-            j++
+function answer() {
+    var checked = [];
+    var i = 0;
+    while(++i <= 6) {
+        if(document.getElementById("check" + i).checked) {
+            checked.push(document.getElementById("check" + i).getAttribute("name"));
         }
     }
+    send(checked);
+}
+
+function send(checked) {
+    var usrPost = new XMLHttpRequest();
+    var data = {
+        question: "What Linux you use?",
+        choices: []
+    };
+
+    data.choices = checked;
     
     var info = JSON.stringify(data);
-    console.log(info);
+    alert(info);
 
     usrPost.open('POST', 'http://polls.apiblueprint.org/questions', true);
-    usrPost.setRequestHeader("Content-Type", "application/json");  // 400 (BAD REQUEST)
+    usrPost.setRequestHeader("Content-Type", "application/json");
     usrPost.send(info);
 
     usrPost.onreadystatechange = function (){
         if (usrPost.readyState != 4) return;
         alert('Post request');
-    };
-
-    usrGet.open('GET', 'http://polls.apiblueprint.org/questions', true);
-    usrGet.send();
-
-    usrGet.onreadystatechange = function() {
-        if (usrGet.readyState != 4) return;
-
-        var result = JSON.parse(usrGet.responseText);
-        console.log(result);
-
     };
 }

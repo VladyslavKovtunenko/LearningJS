@@ -10,17 +10,18 @@
 <body>
 
     <form>
-        <input type="text" id="question"><br>
-        <p>Choices:</p>
-        <input type="text" id="choice1"><br>
-        <input type="text" id="choice2"><br>
-        <input type="text" id="choice3"><br>
-        <input type="text" id="choice4"><br>
+        <p><b>What Linux you use?</b></p>
+            <input type="checkbox" id="check1" name="Debian">Debian<Br>
+            <input type="checkbox" id="check2" name="Ubuntu">Ubuntu<Br>
+            <input type="checkbox" id="check3" name="RHEL">RHEL<Br>
+            <input type="checkbox" id="check4" name="OpenSuse">OpenSuse<Br>
+            <input type="checkbox" id="check5" name="Arch">Arch<Br>
+            <input type="checkbox" id="check6" name="Other">Other<Br>
+        <p><button onclick="answer()">Answer</button></p>
     </form>
-    <button onclick="send()">Send</button>
+
     <hr>
-    <button onclick="load()">Load</button>
-    <button onclick="post()">Post</button>
+    <button onclick="load()">Load list</button>
     <ol id='list'>
 
 </ol>
