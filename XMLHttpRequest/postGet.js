@@ -1,16 +1,29 @@
 function send() {
     var usrPost = new XMLHttpRequest();
     var usrGet = new XMLHttpRequest();
-    var user ={};
+    var data = {
+        question: undefined,
+        choices: []
+    };
+    var j = 0;
 
-    user.name = document.getElementById("user").value;
-    user.age = document.getElementById("age").value;
+    data.question = document.getElementById("question").value;
+
+    console.log(document.getElementsByTagName("input")[0].value);
+    console.log(document.getElementsByTagName("input")[1].value);
+
+    for (var i = 1; i <= 4; i++){
+        if(document.getElementsByTagName("input")[i].value != ""){
+            data.choices[j] = document.getElementsByTagName("input")[i].value;
+            j++
+        }
+    }
     
-    var info = JSON.stringify(user);
+    var info = JSON.stringify(data);
     console.log(info);
 
     usrPost.open('POST', 'http://polls.apiblueprint.org/questions', true);
-    usrPost.setRequestHeader("X-Requested-With", "XMLHttpRequest");  // 400 (BAD REQUEST)
+    usrPost.setRequestHeader("Content-Type", "application/json");  // 400 (BAD REQUEST)
     usrPost.send(info);
 
     usrPost.onreadystatechange = function (){
@@ -27,5 +40,5 @@ function send() {
         var result = JSON.parse(usrGet.responseText);
         console.log(result);
 
-    }
+    };
 }
